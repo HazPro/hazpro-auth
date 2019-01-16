@@ -25,6 +25,7 @@ export class Auth {
       ctx.throw(500, 'Broken authorization token')
     }
     _.set(ctx, 'user', { type: typeof authData, data: authData })
+    _.set(ctx, 'ca', this.certificate)
     await next()
   }
 }
