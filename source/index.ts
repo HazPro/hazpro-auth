@@ -9,6 +9,9 @@ export class Auth {
   constructor(certificatePath: string) {
     this.certificate = Certificate.fromFile(certificatePath)
   }
+  public getCerificate() {
+    return this.certificate
+  }
   async  auth(ctx: Koa.ParameterizedContext<{}, router.IRouterContext>, next: () => Promise<any>) {
     const berear: string = ctx.get('Authorization')
     const token = berear.split(' ')[1]

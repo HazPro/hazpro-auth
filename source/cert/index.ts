@@ -77,4 +77,9 @@ export class Certificate {
     getPrivateKey() {
         return this.privateKey
     }
+    certificateRequest() {
+      const keys = forge.pki.rsa.generateKeyPair(1024)
+      const csr = forge.pki.createCertificationRequest()
+      csr.publicKey = keys.publicKey
+    }
 }
